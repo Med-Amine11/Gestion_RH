@@ -1,26 +1,27 @@
 package com.grh.controller;
 
-import com.grh.service.UserService;
+import com.grh.service.ContratService;
+import com.grh.config.AppContext ;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import lombok.Setter;
 
 import java.io.IOException;
-
+import com.grh.config.AppContext ;
 public class ContratController {
     @FXML
     private Button logOutButton ;
 
     @FXML
     private Button ContratsButton;
+    @Setter
+    private ContratService contratService ;
 
-    @FXML
-    private UserService userService ;
-
-    public void SetUserService( UserService userService){
-        this.userService = userService ;
+    public ContratController(){
+        contratService = AppContext.getContratService() ;
     }
 
     public void handleLogout() {
@@ -30,7 +31,8 @@ public class ContratController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println("Je suis dans Contrat Controller !");
+            System.out.println("Exception : " + ex.getMessage());
 
 
         }
@@ -43,7 +45,8 @@ public class ContratController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Contrat Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
     public void handleEmployes(){
@@ -53,7 +56,8 @@ public class ContratController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Contrat Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
     public void handleDepartement(){
@@ -63,7 +67,8 @@ public class ContratController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Contrat Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
     public void handleContrats(){
@@ -77,7 +82,8 @@ public class ContratController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Contrat Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
 
@@ -88,7 +94,8 @@ public class ContratController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Contrat Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
 }

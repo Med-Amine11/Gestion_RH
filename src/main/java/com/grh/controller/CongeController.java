@@ -1,12 +1,14 @@
 package com.grh.controller;
 
-import com.grh.service.UserService;
+import com.grh.config.AppContext;
+import com.grh.service.CongeService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
+import lombok.Setter;
+import com.grh.config.AppContext ;
 import java.io.IOException;
 
 public class CongeController {
@@ -16,11 +18,11 @@ public class CongeController {
     @FXML
     private Button CongesButton;
 
-    @FXML
-    private UserService userService ;
+    @Setter
+    private CongeService congeService ;
 
-    public void SetUserService( UserService userService){
-        this.userService = userService ;
+    public CongeController(){
+        congeService = AppContext.getCongeService() ;
     }
 
     public void handleLogout() {
@@ -30,7 +32,8 @@ public class CongeController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println("Je suis dans Conge Controller !");
+            System.out.println("Exception : " + ex.getMessage());
 
 
         }
@@ -42,7 +45,8 @@ public class CongeController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Conge Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
     public void handleEmployes(){
@@ -52,7 +56,8 @@ public class CongeController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Conge Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
     public void handleDepartement(){
@@ -62,7 +67,8 @@ public class CongeController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Conge Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
     public void handleContrats(){
@@ -72,7 +78,8 @@ public class CongeController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Conge Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
 
@@ -87,7 +94,8 @@ public class CongeController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Conge Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
 }

@@ -1,14 +1,16 @@
 package com.grh.controller;
 
-import com.grh.service.UserService;
+import com.grh.config.AppContext;
+import com.grh.service.DepartementService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import lombok.Setter;
 
 import java.io.IOException;
-
+import com.grh.config.AppContext ;
 public class DepartementController {
     @FXML
     private Button logOutButton ;
@@ -16,11 +18,11 @@ public class DepartementController {
     @FXML
     private Button DepartementsButton ;
 
-    @FXML
-    private UserService userService ;
+    @Setter
+    private DepartementService departementService ;
 
-    public void SetUserService( UserService userService){
-        this.userService = userService ;
+    public DepartementController(){
+        departementService = AppContext.getDepartementService();
     }
 
     public void handleLogout() {
@@ -30,7 +32,8 @@ public class DepartementController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println("Je suis dans Département Controller !");
+            System.out.println("Exception : " + ex.getMessage());
 
 
         }
@@ -43,7 +46,8 @@ public class DepartementController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Département Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
     public void handleEmployes(){
@@ -53,7 +57,8 @@ public class DepartementController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Département Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
     public void handleDepartement(){
@@ -66,7 +71,8 @@ public class DepartementController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Département Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
 

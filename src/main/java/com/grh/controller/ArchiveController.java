@@ -1,11 +1,15 @@
 package com.grh.controller;
 
-import com.grh.service.UserService;
+import com.grh.config.AppContext;
+import com.grh.service.CongeService;
+import com.grh.service.ContratService;
+import com.grh.service.EmployeService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import lombok.Setter;
 
 import java.io.IOException;
 
@@ -16,11 +20,17 @@ public class ArchiveController {
     @FXML
     private Button ArchivesButton;
 
-    @FXML
-    private UserService userService ;
+    @Setter
+    private EmployeService employeService ;
+    @Setter
+    private ContratService contratService ;
+    @Setter
+    private CongeService congeService ;
 
-    public void SetUserService( UserService userService){
-        this.userService = userService ;
+    public ArchiveController(){
+        employeService = AppContext.getEmployeService();
+        contratService = AppContext.getContratService() ;
+        congeService = AppContext.getCongeService() ;
     }
 
     public void handleLogout() {
@@ -30,7 +40,8 @@ public class ArchiveController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         } catch (IOException ex) {
-            ex.printStackTrace();
+            System.out.println("Je suis dans Archive Controller !");
+            System.out.println("Exception : " + ex.getMessage());
 
 
         }
@@ -42,7 +53,8 @@ public class ArchiveController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Archive Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
     public void handleEmployes(){
@@ -52,7 +64,8 @@ public class ArchiveController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Archive Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
     public void handleDepartement(){
@@ -62,7 +75,8 @@ public class ArchiveController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Archive Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
     public void handleContrats(){
@@ -72,7 +86,8 @@ public class ArchiveController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Archive Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
 
@@ -83,7 +98,8 @@ public class ArchiveController {
             stage.setScene(new Scene(loader.load()));
             stage.show();
         }catch(IOException ex){
-            ex.printStackTrace();
+            System.out.println("Je suis dans Archive Controller !");
+            System.out.println("Exception : " + ex.getMessage());
         }
     }
 

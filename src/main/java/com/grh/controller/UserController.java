@@ -1,5 +1,7 @@
 package com.grh.controller;
 
+import  com.grh.config.AppContext ;
+import com.grh.config.AppContext;
 import com.grh.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import com.grh.service.UserService ;
 import javafx.stage.Stage;
+import lombok.Setter;
 
 import java.io.IOException;
 
@@ -25,11 +28,11 @@ public class UserController {
     private Label errorLabel;
     @FXML
     private Button loginButton;
-    @FXML
+    @Setter
     private UserService userService ;
-    @FXML
-    public void initialize(){
-        this.userService = new UserService() ;
+
+    public UserController(){
+        userService = AppContext.getUserService() ;
     }
     @FXML
     public void handleLogin(){
@@ -43,14 +46,13 @@ public class UserController {
             try{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Home.fxml"));
             Parent root = loader.load() ;
-            HomeController controller = loader.getController();
-            controller.SetUserService(userService);
             Stage stage = (Stage) loginButton.getScene().getWindow() ;
             stage.setScene(new Scene(root));
             stage.show();
             }
             catch(IOException ex){
-                ex.printStackTrace();
+                System.out.println("Je suis dans User Controller !");
+                System.out.println("Exception : " + ex.getMessage());
             }
         }
         else{

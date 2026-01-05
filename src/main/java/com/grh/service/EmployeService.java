@@ -36,4 +36,6 @@ public class EmployeService {
     public Employe findEmployeByNom(String nom) {
          return  employeDao.findEmployeByNom(nom);
     }
+
+    public int countAllEmployes(){return employeDao.countAllEmployes() ; }
 }

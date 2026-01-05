@@ -162,4 +162,18 @@ public class EmployeDaoImp implements EmployeDao {
                 rs.getInt("id_departement")
         );
     }
+
+    public int countAllEmployes(){
+        int count  = 0 ;
+        String sql = "select count(*) from employe" ;
+        try(PreparedStatement st = con.prepareStatement(sql)){
+            ResultSet rs =  st.executeQuery() ;
+            if(rs.next()){
+                count = rs.getInt(1) ;
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return count ;
+    }
 }

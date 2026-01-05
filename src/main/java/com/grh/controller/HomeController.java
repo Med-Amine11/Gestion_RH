@@ -1,11 +1,16 @@
 package com.grh.controller;
 
-import com.grh.service.UserService;
+import com.grh.service.EmployeService;
+import com.grh.service.DepartementService;
+import com.grh.service.CongeService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import com.grh.config.AppContext ;
+import lombok.Setter;
 
 import java.io.IOException;
 
@@ -17,15 +22,24 @@ public class HomeController {
   @FXML
   private Button AccueilButton ;
 
-
-
   @FXML
-    private UserService userService ;
+  private Label TotalEmployes  ;
+  @Setter
+  private EmployeService employeService ;
+  @Setter
+  private DepartementService departementService ;
+  @Setter
+  private CongeService congeService ;
 
-  public void SetUserService( UserService userService){
-      this.userService = userService ;
-  }
-
+    public HomeController(){
+        employeService = AppContext.getEmployeService();
+        departementService = AppContext.getDepartementService() ;
+        congeService = AppContext.getCongeService() ;
+    }
+    @FXML
+    public void initialize(){
+        TotalEmployes.setText(String.valueOf(employeService.countAllEmployes()) ) ;
+    }
   public void handleLogout() {
       try {
           FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
@@ -33,7 +47,8 @@ public class HomeController {
           stage.setScene(new Scene(loader.load()));
           stage.show();
       } catch (IOException ex) {
-          ex.printStackTrace();
+          System.out.println("Je suis dans Home Controller !");
+          System.out.println("Exception : " + ex.getMessage());
       }
   }
   public void handleAccueil(){
@@ -46,7 +61,8 @@ public class HomeController {
           stage.setScene(new Scene(loader.load()));
           stage.show();
       }catch(IOException ex){
-          ex.printStackTrace();
+          System.out.println("Je suis dans Home Controller !");
+          System.out.println("Exception : " + ex.getMessage());
       }
   }
   public void handleDepartement(){
@@ -56,7 +72,8 @@ public class HomeController {
           stage.setScene(new Scene(loader.load()));
           stage.show();
       }catch(IOException ex){
-          ex.printStackTrace();
+          System.out.println("Je suis dans Home Controller !");
+          System.out.println("Exception : " + ex.getMessage());
       }
   }
   public void handleContrats(){
@@ -66,7 +83,8 @@ public class HomeController {
           stage.setScene(new Scene(loader.load()));
           stage.show();
       }catch(IOException ex){
-          ex.printStackTrace();
+          System.out.println("Je suis dans Home Controller !");
+          System.out.println("Exception : " + ex.getMessage());
       }
   }
 
@@ -77,7 +95,8 @@ public class HomeController {
           stage.setScene(new Scene(loader.load()));
           stage.show();
       }catch(IOException ex){
-          ex.printStackTrace();
+          System.out.println("Je suis dans Home Controller !");
+          System.out.println("Exception : " + ex.getMessage());
       }
   }
 
@@ -88,7 +107,8 @@ public class HomeController {
           stage.setScene(new Scene(loader.load()));
           stage.show();
       }catch(IOException ex){
-          ex.printStackTrace();
+          System.out.println("Je suis dans Home Controller !");
+          System.out.println("Exception : " + ex.getMessage());
       }
   }
 }

@@ -10,4 +10,5 @@ public interface EmployeDao {
     Employe findEmployeById(int id);
     List<Employe> findAllEmployes();
     Employe findEmployeByNom(String nom);
+    int countAllEmployes() ;
 }
