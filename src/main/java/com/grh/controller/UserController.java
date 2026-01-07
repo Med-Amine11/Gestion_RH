@@ -58,7 +58,6 @@ public class UserController {
         else{
             errorLabel.setText("Email ou mot de passe incorrect");
             errorLabel.setVisible(true);
-            errorLabel.setStyle("-fx-text-fill: red;");
         }
 
     }

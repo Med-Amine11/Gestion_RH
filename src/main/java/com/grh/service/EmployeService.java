@@ -38,4 +38,119 @@ public class EmployeService {
     }
 
     public int countAllEmployes(){return employeDao.countAllEmployes() ; }
+    public Boolean employeExisteParNomPrenom(
+            List<Employe> employes,
+            String nom,
+            String prenom
+    ) {
+        return employes.stream()
+                .anyMatch(e ->
+                        e.getNom().equalsIgnoreCase(nom)
+                                && e.getPrenom().equalsIgnoreCase(prenom)
+                );
+    }
+
+    public Boolean employeExisteParCin(
+            List<Employe> employes,
+            String cin
+    ) {
+        return employes.stream()
+                .anyMatch(e -> e.getCin().equals(cin));
+    }
+
+    public Boolean employeExisteParEmail(
+            List<Employe> employes,
+            String email
+    ) {
+        return employes.stream()
+                .anyMatch(e -> e.getEmail().equalsIgnoreCase(email));
+    }
+
+    public Boolean employeExisteParTelephone(
+            List<Employe> employes,
+            String telephone
+    ) {
+        return employes.stream()
+                .anyMatch(e -> e.getTelephone().equals(telephone));
+    }
+
+    public Boolean employeExisteParAdresse(
+            List<Employe> employes,
+            String adresse
+    ) {
+        return employes.stream()
+                .anyMatch(e -> e.getAdresse().equalsIgnoreCase(adresse));
+    }
+
+    public Boolean employeExisteParNomDifferentId(
+            List<Employe> employes ,
+            String nom ,
+            String prenom ,
+            int id){
+        return employes.stream().anyMatch(e ->
+                e.getId_employe() != id &&
+                        e.getNom().equalsIgnoreCase(nom) &&
+                        e.getPrenom().equalsIgnoreCase(prenom)) ;
+    }
+
+    public Boolean employeExisteParCinDifferentId(
+            List<Employe> employes ,
+            String cin ,
+            int id){
+        return employes.stream().anyMatch(e->
+                e.getId_employe() != id && e.getCin().equalsIgnoreCase(cin)) ;
+    }
+    public Boolean employeExisteParEmailDifferentId(
+            List<Employe> employes,
+            String email,
+            int id
+    ) {
+        return employes.stream()
+                .anyMatch(e ->
+                        e.getId_employe() != id
+                                && e.getEmail().equalsIgnoreCase(email)
+                );
+    }
+    public Boolean employeExisteParTelephoneDifferentId(
+            List<Employe> employes,
+            String telephone,
+            int id
+    ) {
+        return employes.stream()
+                .anyMatch(e ->
+                        e.getId_employe() != id
+                                && e.getTelephone().equals(telephone)
+                );
+    }
+    public Boolean employeExisteParAdresseDifferentId(
+            List<Employe> employes,
+            String adresse,
+            int id
+    ) {
+        return employes.stream()
+                .anyMatch(e ->
+                        e.getId_employe() != id
+                                && e.getAdresse().equalsIgnoreCase(adresse)
+                );
+    }
+    public Boolean employeExiste(List<Employe> employes, Employe employe) {
+        return employes.stream().anyMatch(e ->
+                // Comparaison de tous les champs sauf id_employe et nom_departement
+                e.getNom().equalsIgnoreCase(employe.getNom()) &&
+                        e.getPrenom().equalsIgnoreCase(employe.getPrenom()) &&
+                        e.getCin().equals(employe.getCin()) &&
+                        e.getEmail().equalsIgnoreCase(employe.getEmail()) &&
+                        e.getTelephone().equals(employe.getTelephone()) &&
+                        e.getAdresse().equalsIgnoreCase(employe.getAdresse()) &&
+                        e.getDate_naissance().equals(employe.getDate_naissance()) &&
+                        e.getDate_recrutement().equals(employe.getDate_recrutement()) &&
+                        e.getPoste().equalsIgnoreCase(employe.getPoste()) &&
+                        e.getSalaire() == employe.getSalaire() &&
+                        e.getId_departement() == employe.getId_departement()
+        );
+    }
+
+
+
+
 }

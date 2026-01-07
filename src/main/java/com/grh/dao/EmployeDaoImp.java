@@ -18,6 +18,7 @@ public class EmployeDaoImp implements EmployeDao {
     @Override
     public int addEmploye(Employe employe) {
 
+        System.out.println(employe);
         LocalDate dateNaissance = LocalDate.parse(employe.getDate_naissance());
         LocalDate dateRecrutement = LocalDate.parse(employe.getDate_recrutement()) ;
 
@@ -36,7 +37,7 @@ public class EmployeDaoImp implements EmployeDao {
             st.setDate( 8 ,java.sql.Date.valueOf(dateRecrutement) );
             st.setString(9, employe.getPoste());
             st.setDouble(10, employe.getSalaire());
-            st.setInt(11, employe.getJours_conge_annuel());
+            st.setInt(11, 21);
             st.setInt(12, employe.getId_departement());
             rows = st.executeUpdate();
         } catch (SQLException ex) {
@@ -48,16 +49,16 @@ public class EmployeDaoImp implements EmployeDao {
     @Override
     public int updateEmploye(Employe employe) {
 
+
         LocalDate dateNaissance = LocalDate.parse(employe.getDate_naissance());
         LocalDate dateRecrutement = LocalDate.parse(employe.getDate_recrutement()) ;
 
         String sql = "UPDATE employe SET nom=?, prenom=?, cin=?, adresseEmail=?, telephone=?, adresse=?, " +
-                     "date_naissance=?, date_recrutement=?, poste=?, salaire=?, jours_conge_annuel=? , id_departement=?" +
+                     "date_naissance=?, date_recrutement=?, poste=?, salaire=? , id_departement=? " +
                      " WHERE id_employe=?";
 
         int rows = 0;
 
-        System.out.println(sql);
         try (PreparedStatement st = con.prepareStatement(sql)) {
 
             st.setString(1, employe.getNom());
@@ -70,10 +71,10 @@ public class EmployeDaoImp implements EmployeDao {
             st.setDate(8, java.sql.Date.valueOf(dateRecrutement));
             st.setString(9, employe.getPoste());
             st.setDouble(10, employe.getSalaire());
-            st.setInt(11, employe.getJours_conge_annuel());
-            st.setInt(12, employe.getId_departement());
-            st.setInt(13, employe.getId_employe()) ;
+            st.setInt(11, employe.getId_departement());
+            st.setInt(12, employe.getId_employe()) ;
 
+            System.out.println(st);
             rows = st.executeUpdate();
 
         } catch (SQLException ex) {
@@ -113,7 +114,9 @@ public class EmployeDaoImp implements EmployeDao {
     @Override
     public List<Employe> findAllEmployes() {
         List<Employe> list = new ArrayList<>();
-        String sql = "SELECT * FROM employe";
+        String sql = "select Employe.* , departement.nom as nom_departement \n" +
+                "from Employe join departement on Employe.id_departement = departement.id_departement\n" +
+                "where not exists(select 1 from user where user.id_user = Employe.id_employe )";
         try (Statement st = con.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) {
@@ -159,7 +162,8 @@ public class EmployeDaoImp implements EmployeDao {
                 rs.getString("poste"),
                 rs.getDouble("salaire"),
                 rs.getInt("jours_conge_annuel"),
-                rs.getInt("id_departement")
+                rs.getInt("id_departement"),
+                rs.getString("nom_departement")
         );
     }
 
@@ -176,4 +180,11 @@ public class EmployeDaoImp implements EmployeDao {
         }
         return count ;
     }
+
+
+
+
+
+
+
 }

@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grh.controller.EmployeController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grh.controller.EmployeController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -56,14 +56,14 @@
                               </Label>
                               <Line endX="69.0" layoutX="121.0" layoutY="198.0" startX="-100.0" stroke="WHITE" />
 
-                              <Button fx:id="AccueilButton" layoutX="16.0" layoutY="227.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="🏠 Accueil" onAction="#handleAccueil"/>
-                              <Button fx:id="EmployesButton" layoutX="16.0" layoutY="262.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="👤 Employés" onAction="#handleEmployes"/>
-                              <Button fx:id="DepartementsButton" layoutX="16.0" layoutY="297.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="🏢 Départements" onAction="#handleDepartement"/>
-                              <Button fx:id="ContratsButton" layoutX="16.0" layoutY="332.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="📄 Contrats" onAction="#handleContrats"/>
-                              <Button fx:id="CongesButton" layoutX="16.0" layoutY="367.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="🏖️ Congés" onAction="#handleConges"/>
-                              <Button fx:id="ArchivesButton" layoutX="16.0" layoutY="402.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="🗄️ Archives" onAction="#handleArchives"/>
+                              <Button fx:id="AccueilButton" layoutX="16.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleAccueil" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="🏠 Accueil" />
+                              <Button fx:id="EmployesButton" layoutX="16.0" layoutY="262.0" mnemonicParsing="false" onAction="#handleEmployes" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="👤 Employés" />
+                              <Button fx:id="DepartementsButton" layoutX="16.0" layoutY="297.0" mnemonicParsing="false" onAction="#handleDepartement" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="🏢 Départements" />
+                              <Button fx:id="ContratsButton" layoutX="16.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleContrats" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="📄 Contrats" />
+                              <Button fx:id="CongesButton" layoutX="16.0" layoutY="367.0" mnemonicParsing="false" onAction="#handleConges" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="🏖️ Congés" />
+                              <Button fx:id="ArchivesButton" layoutX="16.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleArchives" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="🗄️ Archives" />
 
-                              <Button fx:id="logOutButton" layoutX="9.0" layoutY="509.0" mnemonicParsing="false" styleClass="logout" stylesheets="@../css/style.css" text="Déconnexion" textFill="WHITE" onAction="#handleLogout">
+                              <Button fx:id="logOutButton" layoutX="9.0" layoutY="509.0" mnemonicParsing="false" onAction="#handleLogout" styleClass="logout" stylesheets="@../css/style.css" text="Déconnexion" textFill="WHITE">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -93,19 +93,27 @@
                                     <TextField fx:id="searchField" layoutX="14.0" layoutY="50.0" prefHeight="30.0" prefWidth="250.0" promptText="Rechercher..." styleClass="search" stylesheets="@../css/style.css" />
 
                                     <TableView fx:id="employeTable" layoutX="14.0" layoutY="90.0" prefHeight="400.0" prefWidth="830.0" stylesheets="@../css/style.css">
-                                       <columns>
-                                          <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
-                                          <TableColumn fx:id="colNom" prefWidth="100.0" text="Nom" />
-                                          <TableColumn fx:id="colPrenom" prefWidth="100.0" text="Prénom" />
-                                          <TableColumn fx:id="colPoste" prefWidth="100.0" text="Poste" />
-                                          <TableColumn fx:id="colEmail" prefWidth="150.0" text="Email" />
-                                          <TableColumn fx:id="colSalaire" prefWidth="80.0" text="Salaire" />
-                                          <TableColumn fx:id="colActions" prefWidth="248.6666259765625" />
-                                       </columns>
+
+                                          <columns>
+                                             <TableColumn fx:id="colId" prefWidth="50" text="ID" visible="false" />
+                                             <TableColumn fx:id="colNom" prefWidth="120.0" text="Nom" />
+                                             <TableColumn fx:id="colPrenom" prefWidth="120.0" text="Prénom" />
+                                             <TableColumn fx:id="colCin" prefWidth="100" text="CIN" visible="false" />
+                                             <TableColumn fx:id="colEmail" prefWidth="150.0" text="Email" />
+                                             <TableColumn fx:id="colTelephone" prefWidth="120" text="Téléphone" visible="false" />
+                                             <TableColumn fx:id="colAdresse" prefWidth="150" text="Adresse" visible="false" />
+                                             <TableColumn fx:id="colDateNaissance" prefWidth="120" text="Date de naissance" visible="false" />
+                                             <TableColumn fx:id="colDateRecrutement" prefWidth="130" text="Date de recrutement" visible="false" />
+                                             <TableColumn fx:id="colPoste" prefWidth="150.0" text="Poste" />
+                                             <TableColumn fx:id="colSalaire" prefWidth="80" text="Salaire" visible="false" />
+                                             <TableColumn fx:id="colDepartement" prefWidth="150.0" text="Département" />
+                                             <TableColumn fx:id="colJoursCongeRestant" prefWidth="140.0" text="Jours de congé " />
+
+                                          </columns>
                                     </TableView>
 
-                                    <Button layoutX="393.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="add-btn" stylesheets="@../css/style.css" text="Ajouter" />
-                                    <Button layoutX="503.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="update-btn" stylesheets="@../css/style.css" text="Modifier" />
+                                    <Button layoutX="393.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="add-btn" stylesheets="@../css/style.css" text="Ajouter" onAction="#ajouterEmploye"/>
+                                    <Button layoutX="503.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="update-btn" stylesheets="@../css/style.css" text="Modifier" onAction="#modifierEmploye"/>
                                     <Button layoutX="613.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="delete-btn" stylesheets="@../css/style.css" text="Supprimer" />
                                     <Button layoutX="724.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="archive-btn" stylesheets="@../css/style.css" text="Archiver" />
                                  </children>

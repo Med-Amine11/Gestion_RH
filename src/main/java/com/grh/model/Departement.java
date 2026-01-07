@@ -1,5 +1,10 @@
 package com.grh.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Departement {
     private int id_departement;
     private String nom;
@@ -16,28 +21,6 @@ public class Departement {
         this.description = description;
     }
 
-    // Getter et Setter pour id_departement
-    public int getId_departement() {
-        return id_departement;
-    }
-
-    public void setId_departement(int id_departement) {
-        this.id_departement = id_departement;
-    }
-
-    // Getter et Setter pour nom
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    // Getter et Setter pour description
-    public String getDescription() {
-        return description;
-    }
 
     public void setDescription(String description) {
         this.description = description;
@@ -45,9 +28,7 @@ public class Departement {
 
     @Override
     public String toString() {
-        return "Departement : id : " + id_departement +
-                " nom : " + nom +
-                " descritpion : " + description ;
+        return getNom() ;
     }
 }
 

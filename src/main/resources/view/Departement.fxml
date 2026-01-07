@@ -91,16 +91,14 @@
                                        </font>
                                     </Label>
 
-                                    <Label layoutX="20.0" layoutY="60.0" text="Nom:" />
-                                    <TextField layoutX="60.0" layoutY="55.0" prefHeight="30.0" prefWidth="250.0" promptText="Nom du département" styleClass="textfield" stylesheets="@../css/style.css" />
-                                    <Button layoutX="320.0" layoutY="55.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="add-btn" stylesheets="@../css/style.css" text="Ajouter" />
+                                    <Button layoutX="20.0" layoutY="55.0" mnemonicParsing="false" onAction="#handleDefaultAndShowAddView" prefHeight="35.0" prefWidth="200.0" styleClass="add-btn" stylesheets="@../css/style.css" text="+ Nouveau Département" />
 
-                                    <TableView layoutX="14.0" layoutY="100.0" prefHeight="400.0" prefWidth="830.0" stylesheets="@../css/style.css">
+                                    <TableView fx:id="departementTable" layoutX="14.0" layoutY="100.0" prefHeight="400.0" prefWidth="830.0" stylesheets="@../css/style.css">
                                        <columns>
-                                          <TableColumn prefWidth="100.0" text="ID" />
-                                          <TableColumn prefWidth="300.0" text="Nom du Département" />
-                                          <TableColumn prefWidth="300.0" text="Description" />
-                                          <TableColumn prefWidth="300.0" />
+                                          <TableColumn fx:id="colId" prefWidth="100.0" text="ID" />
+                                          <TableColumn fx:id="colNom" prefWidth="300.0" text="Nom du Département" />
+                                          <TableColumn fx:id="colDescription" prefWidth="300.0" text="Description" />
+                                          <TableColumn fx:id="colActions" prefWidth="300.0" text="Actions" />
                                        </columns>
                                     </TableView>
                                  </children>

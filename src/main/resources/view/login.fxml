@@ -45,7 +45,9 @@
                   
                   <TextField fx:id="emailField" layoutX="150.0" layoutY="200.0" prefHeight="40.0" prefWidth="300.0" promptText="Email / Identifiant" styleClass="textfield" stylesheets="@../css/style.css" />
                   <PasswordField fx:id="passwordField" layoutX="150.0" layoutY="260.0" prefHeight="40.0" prefWidth="300.0" promptText="Mot de passe" styleClass="textfield" stylesheets="@../css/style.css" />
-                  
+                  <Label fx:id="errorLabel"
+                         visible="false"
+                         style="-fx-text-fill: red; -fx-font-size: 13px;" />
                   <Button fx:id="loginButton" layoutX="150.0" layoutY="350.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" styleClass="update-btn" stylesheets="@../css/style.css" text="Se Connecter" onAction="#handleLogin" />
                   
                </children>

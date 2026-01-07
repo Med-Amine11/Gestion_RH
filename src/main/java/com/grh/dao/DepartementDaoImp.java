@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DepartementDaoImp implements DepartementDao {
     private Connection con ;
@@ -83,5 +85,25 @@ public class DepartementDaoImp implements DepartementDao {
             ex.printStackTrace();
         }
         return ligne ;
+    }
+
+    @Override
+    public List<Departement> getAllDepartements(){
+        List<Departement> departements = new ArrayList<Departement>() ;
+
+        String sql = "select id_departement, nom, description from departement" ;
+
+        try(PreparedStatement st = con.prepareStatement(sql)){
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                departements.add( new Departement(rs.getInt("id_departement"),
+                        rs.getString("nom") , rs.getString("description"))  );
+
+            }
+
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return departements  ;
     }
 }

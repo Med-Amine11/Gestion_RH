@@ -4,6 +4,8 @@ import com.grh.dao.DepartementDao;
 import com.grh.dao.DepartementDaoImp;
 import com.grh.model.Departement;
 
+import java.util.List;
+
 public class DepartementService {
     private DepartementDao departementDao ;
 
@@ -27,4 +29,7 @@ public class DepartementService {
         return departementDao.deleteDepartement(id )> 0 ;
     }
 
+    public List<Departement> getAllDepartements(){
+        return departementDao.getAllDepartements() ;
+    }
 }
