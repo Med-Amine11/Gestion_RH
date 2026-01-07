@@ -32,4 +32,7 @@ public class DepartementService {
     public List<Departement> getAllDepartements(){
         return departementDao.getAllDepartements() ;
     }
+    public int countAllDepartements(){
+        return departementDao.countAllDepartements() ;
+    }
 }

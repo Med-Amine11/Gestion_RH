@@ -23,7 +23,12 @@ public class HomeController {
   private Button AccueilButton ;
 
   @FXML
+  private Label TotalCongesEnAttente ;
+
+  @FXML
   private Label TotalEmployes  ;
+  @FXML
+  private Label TotalDepartements  ;
   @Setter
   private EmployeService employeService ;
   @Setter
@@ -38,7 +43,10 @@ public class HomeController {
     }
     @FXML
     public void initialize(){
+
         TotalEmployes.setText(String.valueOf(employeService.countAllEmployes()) ) ;
+        TotalDepartements.setText(String.valueOf(departementService.countAllDepartements()));
+        TotalCongesEnAttente.setText(String.valueOf(congeService.countAllCongesEnAttente()));
     }
   public void handleLogout() {
       try {

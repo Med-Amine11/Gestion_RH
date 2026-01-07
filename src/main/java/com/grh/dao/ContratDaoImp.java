@@ -120,4 +120,35 @@ public class ContratDaoImp implements ContratDao {
                 rs.getInt("id_employe")
         );
     }
+
+    @Override
+    public int archiverContrat(Contrat contrat) {
+        int count = 0;
+
+        String sql = """
+        INSERT INTO archiver_contrat
+        (id_contrat, type_contrat, date_debut, date_fin, salaire_base, id_employe)
+        VALUES (?, ?, ?, ?, ?, ?)
+    """;
+
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, contrat.getId_contrat());
+            ps.setString(2, contrat.getType_contrat());
+            ps.setDate(3, Date.valueOf(contrat.getDate_debut()));
+
+            ps.setDate(4, Date.valueOf(contrat.getDate_fin()));
+
+            ps.setDouble(5, contrat.getSalaire_base());
+            ps.setInt(6, contrat.getId_employe()); // ID EMPLOYÉ ARCHIVÉ
+
+            count = ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return count;
+    }
+
 }

@@ -112,10 +112,12 @@
                                           </columns>
                                     </TableView>
 
+
+
                                     <Button layoutX="393.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="add-btn" stylesheets="@../css/style.css" text="Ajouter" onAction="#ajouterEmploye"/>
                                     <Button layoutX="503.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="update-btn" stylesheets="@../css/style.css" text="Modifier" onAction="#modifierEmploye"/>
-                                    <Button layoutX="613.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="delete-btn" stylesheets="@../css/style.css" text="Supprimer" />
-                                    <Button layoutX="724.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="archive-btn" stylesheets="@../css/style.css" text="Archiver" />
+                                    <Button layoutX="613.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="delete-btn" stylesheets="@../css/style.css" text="Supprimer" onAction="#supprimerEmploye"/>
+                                    <Button layoutX="724.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" styleClass="archive-btn" stylesheets="@../css/style.css" text="Archiver" onAction="#archiverEmploye"/>
                                  </children>
                               </AnchorPane>
                            </children>

@@ -36,4 +36,9 @@ public class ContratService {
     public List<Contrat> getContratsByEmployeId(int idEmploye) {
         return contratDao.findContratsByEmployeId(idEmploye);
     }
+
+    public Boolean archiverContrat(Contrat contrat){
+        return contratDao.archiverContrat(contrat) > 0 ;
+    }
+
 }

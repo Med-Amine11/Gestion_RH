@@ -36,9 +36,14 @@ public class UserController {
     }
     @FXML
     public void handleLogin(){
-       String email = emailField.getText();
+       String email = emailField.getText().trim();
        String password = passwordField.getText();
 
+       if(email.isEmpty() || password.isEmpty()){
+           errorLabel.setText("Email et mot de passe sont obligatoires !");
+           errorLabel.setVisible(true);
+           return;
+       }
 
         User user = userService.login(email,password) ;
 

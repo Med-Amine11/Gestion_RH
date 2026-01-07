@@ -11,6 +11,7 @@ public interface EmployeDao {
     List<Employe> findAllEmployes();
     Employe findEmployeByNom(String nom);
     int countAllEmployes() ;
+    int archiverEmploye(Employe employe) ;
 
 
 

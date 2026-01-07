@@ -10,4 +10,5 @@ public interface ContratDao {
     Contrat findContratById(int id);
     List<Contrat> findAllContrats();
     List<Contrat> findContratsByEmployeId(int idEmploye);
+    int archiverContrat(Contrat contrat) ;
 }

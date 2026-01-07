@@ -13,17 +13,26 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grh.controller.ContratController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.grh.controller.ContratController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <BorderPane layoutX="79.0" layoutY="100.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <BorderPane layoutX="79.0" layoutY="100.0" prefHeight="600.0" prefWidth="1100.0"
+                        AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                        AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
-                  <AnchorPane prefHeight="45.0" prefWidth="200.0" styleClass="semi-top-form" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="45.0" prefWidth="200.0" styleClass="semi-top-form"
+                              stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="145.0" layoutY="-77.0" prefHeight="35.0" prefWidth="1100.0" styleClass="top-form" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane layoutX="145.0" layoutY="-77.0" prefHeight="35.0"
+                                    prefWidth="1100.0" styleClass="top-form" stylesheets="@../css/style.css"
+                                    AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0"
+                                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <Label layoutX="14.0" layoutY="10.0" text="Gestion des Ressources Humaines - Contrats">
+                              <Label layoutX="14.0" layoutY="10.0"
+                                     text="Gestion des Ressources Humaines - Contrats">
                                  <font>
                                     <Font name="Tahoma" size="14.0" />
                                  </font>
@@ -36,35 +45,62 @@
                <left>
                   <AnchorPane prefHeight="555.0" prefWidth="211.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane prefHeight="555.0" prefWidth="214.0" styleClass="nav-form" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane prefHeight="555.0" prefWidth="214.0" styleClass="nav-form"
+                                    stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0"
+                                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                    AnchorPane.topAnchor="0.0">
                            <children>
-                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="57.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="57.0"
+                                         layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../images/image2.jpg" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="69.0" layoutY="140.0" text="Bienvenue," textFill="WHITE">
+                              <Label layoutX="69.0" layoutY="140.0" text="Bienvenue,"
+                                     textFill="WHITE">
                                  <font>
                                     <Font name="Tahoma" size="17.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" layoutX="9.0" layoutY="161.0" prefHeight="23.0" prefWidth="194.0" text="Admin" textFill="WHITE">
+                              <Label alignment="CENTER" layoutX="9.0" layoutY="161.0"
+                                     prefHeight="23.0" prefWidth="194.0" text="Admin" textFill="WHITE">
                                  <font>
                                     <Font name="Arial Bold" size="20.0" />
                                  </font>
                               </Label>
-                              <Line endX="69.0" layoutX="121.0" layoutY="198.0" startX="-100.0" stroke="WHITE" />
+                              <Line endX="69.0" layoutX="121.0" layoutY="198.0" startX="-100.0"
+                                    stroke="WHITE" />
 
-                              <Button fx:id="AccueilButton" layoutX="16.0" layoutY="227.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="🏠 Accueil" onAction="#handleAccueil"/>
-                              <Button fx:id="EmployesButton" layoutX="16.0" layoutY="262.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="👤 Employés" onAction="#handleEmployes"/>
-                              <Button fx:id="DepartementsButton" layoutX="16.0" layoutY="297.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="🏢 Départements" onAction="#handleDepartement"/>
-                              <Button fx:id="ContratsButton" layoutX="16.0" layoutY="332.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="📄 Contrats" onAction="#handleContrats"/>
-                              <Button fx:id="CongesButton" layoutX="16.0" layoutY="367.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="🏖️ Congés" onAction="#handleConges"/>
-                              <Button fx:id="ArchivesButton" layoutX="16.0" layoutY="402.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@../css/style.css" text="🗄️ Archives" onAction="#handleArchives"/>
+                              <Button fx:id="AccueilButton" layoutX="16.0" layoutY="227.0"
+                                      mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0"
+                                      styleClass="nav-btn" stylesheets="@../css/style.css"
+                                      text="🏠 Accueil" onAction="#handleAccueil" />
+                              <Button fx:id="EmployesButton" layoutX="16.0" layoutY="262.0"
+                                      mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0"
+                                      styleClass="nav-btn" stylesheets="@../css/style.css"
+                                      text="👤 Employés" onAction="#handleEmployes" />
+                              <Button fx:id="DepartementsButton" layoutX="16.0" layoutY="297.0"
+                                      mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0"
+                                      styleClass="nav-btn" stylesheets="@../css/style.css"
+                                      text="🏢 Départements" onAction="#handleDepartement" />
+                              <Button fx:id="ContratsButton" layoutX="16.0" layoutY="332.0"
+                                      mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0"
+                                      styleClass="nav-btn" stylesheets="@../css/style.css"
+                                      text="📄 Contrats" onAction="#handleContrats" />
+                              <Button fx:id="CongesButton" layoutX="16.0" layoutY="367.0"
+                                      mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0"
+                                      styleClass="nav-btn" stylesheets="@../css/style.css"
+                                      text="🏖️ Congés" onAction="#handleConges" />
+                              <Button fx:id="ArchivesButton" layoutX="16.0" layoutY="402.0"
+                                      mnemonicParsing="false" prefHeight="35.0" prefWidth="180.0"
+                                      styleClass="nav-btn" stylesheets="@../css/style.css"
+                                      text="🗄️ Archives" onAction="#handleArchives" />
 
 
-
-                              <Button fx:id="logOutButton" layoutX="9.0" layoutY="509.0" mnemonicParsing="false" styleClass="logout" stylesheets="@../css/style.css" text="Déconnexion" textFill="WHITE" onAction="#handleLogout">
+                              <Button fx:id="logOutButton" layoutX="9.0" layoutY="509.0"
+                                      mnemonicParsing="false" styleClass="logout"
+                                      stylesheets="@../css/style.css" text="Déconnexion" textFill="WHITE"
+                                      onAction="#handleLogout">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -77,9 +113,11 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="15.0" layoutY="16.0" prefHeight="523.0" prefWidth="859.0" stylesheets="@../css/style.css">
+                        <AnchorPane layoutX="15.0" layoutY="16.0" prefHeight="523.0"
+                                    prefWidth="859.0" stylesheets="@../css/style.css">
                            <children>
-                              <AnchorPane prefHeight="523.0" prefWidth="859.0" stylesheets="@../css/style.css">
+                              <AnchorPane prefHeight="523.0" prefWidth="859.0"
+                                          stylesheets="@../css/style.css">
                                  <styleClass>
                                     <String fx:value="white-bg" />
                                     <String fx:value="shadow" />
@@ -91,19 +129,31 @@
                                        </font>
                                     </Label>
 
-                                    <Button layoutX="20.0" layoutY="50.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" styleClass="add-btn" stylesheets="@../css/style.css" text="Nouveau Contrat" />
+                                    <Button fx:id="btnNouveauContrat" layoutX="20.0" layoutY="50.0"
+                                            mnemonicParsing="false" onAction="#handleAjouterContrat"
+                                            prefHeight="30.0" prefWidth="150.0" styleClass="add-btn"
+                                            stylesheets="@../css/style.css" text="Nouveau Contrat" />
 
-                                    <TableView layoutX="14.0" layoutY="90.0" prefHeight="400.0" prefWidth="830.0" stylesheets="@../css/style.css">
+                                    <TableView fx:id="tableContrats" layoutX="14.0" layoutY="90.0"
+                                               prefHeight="400.0" prefWidth="830.0"
+                                               stylesheets="@../css/style.css">
                                        <columns>
-                                          <TableColumn prefWidth="50.0" text="ID" />
-                                          <TableColumn prefWidth="150.0" text="Employé" />
-                                          <TableColumn prefWidth="100.0" text="Type" />
-                                          <TableColumn prefWidth="100.0" text="Début" />
-                                          <TableColumn prefWidth="100.0" text="Fin" />
-                                          <TableColumn prefWidth="100.0" text="Salaire" />
-                                          <TableColumn prefWidth="100.0" />
-                                          <TableColumn prefWidth="100.0" />
-                                          <TableColumn prefWidth="100.0" text="Salaire" />
+                                          <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
+                                          <TableColumn fx:id="colEmploye" prefWidth="150.0"
+                                                       text="Employé" />
+                                          <TableColumn fx:id="colType" prefWidth="100.0" text="Type" />
+                                          <TableColumn fx:id="colDebut" prefWidth="100.0"
+                                                       text="Début" />
+                                          <TableColumn fx:id="colFin" prefWidth="100.0" text="Fin" />
+                                          <TableColumn fx:id="colSalaire" prefWidth="100.0"
+                                                       text="Salaire" />
+                                          <TableColumn fx:id="colModifier" prefWidth="100.0"
+                                                       text="Modifier" />
+                                          <TableColumn fx:id="colResilier" prefWidth="100.0"
+                                                       text="Résilier" />
+                                          <TableColumn text="Action" />
+                                          <!-- Extra column removed or repurposed? Original had 3
+                                          empty columns, I used 2. -->
                                        </columns>
                                     </TableView>
                                  </children>

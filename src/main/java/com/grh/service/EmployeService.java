@@ -3,7 +3,10 @@ package com.grh.service;
 import com.grh.dao.EmployeDao;
 import com.grh.dao.EmployeDaoImp;
 import com.grh.model.Employe;
+
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class EmployeService {
     private EmployeDao employeDao;
@@ -150,7 +153,16 @@ public class EmployeService {
         );
     }
 
+    public List<Employe> ListerEmployesParNom(List<Employe> employes , String nom)
+    {
+        return employes.stream().
+                filter(employe -> employe.getNom().toLowerCase().contains(nom.toLowerCase())).
+                toList() ;
 
+    }
 
+    public Boolean archiverEmploye(Employe e){
+        return employeDao.archiverEmploye(e) > 0 ;
+    }
 
 }

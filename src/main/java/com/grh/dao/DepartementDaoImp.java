@@ -106,4 +106,18 @@ public class DepartementDaoImp implements DepartementDao {
         }
         return departements  ;
     }
+    @Override
+    public int countAllDepartements(){
+        int count = 0 ;
+        String sql = "select count(*) as total_departement from departement" ;
+        try(PreparedStatement st = con.prepareStatement(sql)){
+            ResultSet rs = st.executeQuery() ;
+            if(rs.next()){
+                count = rs.getInt(1) ;
+            }
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return count ;
+    }
 }

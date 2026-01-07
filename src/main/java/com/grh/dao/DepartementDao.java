@@ -10,5 +10,5 @@ public interface DepartementDao {
     public int updateDepartement(Departement dep);
     public int deleteDepartement(int id) ;
     public List<Departement> getAllDepartements() ;
-
+    public int countAllDepartements() ;
 }

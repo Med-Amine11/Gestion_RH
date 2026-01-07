@@ -181,6 +181,50 @@ public class EmployeDaoImp implements EmployeDao {
         return count ;
     }
 
+    @Override
+    public int archiverEmploye(Employe e) {
+        int count = 0;
+
+        String sql = """
+        INSERT INTO archiver_employe (
+            id_employe,
+            nom,
+            prenom,
+            cin,
+            email,
+            telephone,
+            adresse,
+            date_naissance,
+            date_recrutement,
+            poste,
+            salaire
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """;
+
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, e.getId_employe());
+            ps.setString(2, e.getNom());
+            ps.setString(3, e.getPrenom());
+            ps.setString(4, e.getCin());
+            ps.setString(5, e.getEmail());
+            ps.setString(6, e.getTelephone());
+            ps.setString(7, e.getAdresse());
+
+            ps.setDate(8, java.sql.Date.valueOf(e.getDate_naissance()));
+            ps.setDate(9, java.sql.Date.valueOf(e.getDate_recrutement()));
+
+            ps.setString(10, e.getPoste());
+            ps.setDouble(11, e.getSalaire());
+
+            count = ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return count;
+    }
 
 
 
